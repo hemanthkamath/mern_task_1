@@ -4,7 +4,7 @@ NEXUS.LEDGER is a modern, high-performance inventory management and asset tracki
 
 ---
 
-## 📸 Screenshots & Visual Walkthrough
+##  Screenshots & Visual Walkthrough
 
 ### 1. Main Dashboard & KPI Analytics Overview
 ![Main Dashboard & KPI Analytics](screenshots/01-dashboard-kpi-overview.png)
@@ -42,7 +42,7 @@ NEXUS.LEDGER is a modern, high-performance inventory management and asset tracki
 
 ---
 
-## ✨ Key Features & Capabilities
+##  Key Features & Capabilities
 
 - **Continuous Serial Re-indexing:** Deleting any entry automatically triggers server-side ID recalibration, ensuring no gaps or fragmented serial numbers in the ledger.
 - **Real-Time KPI Analytics:** Instant automatic computation of Total Valuation, Average Price, Stock Quantities, and Low Stock Alerts.
@@ -59,7 +59,7 @@ NEXUS.LEDGER is a modern, high-performance inventory management and asset tracki
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 | Layer | Technology | Details |
 | :--- | :--- | :--- |
