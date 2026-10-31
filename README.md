@@ -73,7 +73,7 @@ NEXUS.LEDGER is a modern, high-performance inventory management and asset tracki
 
 ---
 
-## 📡 REST API Reference
+##  REST API Reference
 
 | Method | Endpoint | Description | Request Body | Response Status |
 | :--- | :--- | :--- | :--- | :--- |
@@ -86,7 +86,7 @@ NEXUS.LEDGER is a modern, high-performance inventory management and asset tracki
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 smart-inventory-ledger/
@@ -107,7 +107,7 @@ smart-inventory-ledger/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
