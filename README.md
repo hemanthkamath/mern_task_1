@@ -1,53 +1,46 @@
-# LEDGER.OS — Smart Inventory & Item Management System
+# NEXUS.LEDGER — Next-Gen Smart Inventory & Asset Tracking System
 
-A high-performance, minimalist item management and inventory tracking web application built with Node.js, Express, and modern JavaScript. Features continuous serial re-indexing, real-time search filtering, dynamic metrics calculation, and a clean fintech-inspired user interface.
-
----
-
-## 📸 Output & Application Walkthrough
-
-### Figure 1: Starting Phase (Dashboard Overview)
-Initial application state on page load. Displays active inventory items, real-time REST API status indicator, and dynamic KPI metric cards (Total Items, Total Valuation, Average Price).
-![Figure 1: Starting Phase](screenshots/fig1_initial_state.png)
+A sleek, high-performance item management and inventory tracking web application built with **Node.js**, **Express**, and modern Vanilla JavaScript. Features continuous serial re-indexing, real-time omni-search, category filtering, low-stock alerts, dark/light theme switching, table & grid card views, stock steppers, and instant CSV/JSON exports.
 
 ---
 
-### Figure 2: POST Operation (Creating a New Item)
-Entering new product attributes (`Name: Mechanical Keyboard`, `Price: ₹2499.00`) in the Create panel. Upon submission via `POST /items`, the item is added to the in-memory store and serial numbers are updated.
-![Figure 2: POST Operation](screenshots/fig2_post_add_item.png)
+## ✨ What's New & Upgraded
 
----
+### 1. 📦 Re-imagined Inventory Catalog
+Upgraded from basic default placeholders to a comprehensive modern high-end tech & device catalog:
+- **MacBook Pro 16" M3 Max** (Computing, ₹2,49,900)
+- **Sony WH-1000XM5 Wireless Headphones** (Audio, ₹29,990)
+- **Keychron Q1 Pro Mechanical Keyboard** (Peripherals, ₹17,499)
+- **Logitech MX Master 3S Mouse** (Peripherals, ₹8,995)
+- **Dell UltraSharp 32" 4K USB-C Monitor** (Displays, ₹74,900)
+- **Apple iPad Pro 11" M4** (Tablets, ₹99,900)
+- **Samsung 990 PRO 2TB NVMe SSD** (Storage, ₹16,499)
+- **Anker Prime 20,000mAh Power Bank** (Power, ₹11,999)
+- **Elgato Stream Deck MK.2** (Streaming, ₹13,999)
+- **Herman Miller Aeron Ergonomic Chair** (Furniture, ₹1,25,000)
 
-### Figure 3: PUT Operation (Updating an Item)
-Clicking the edit action triggers `UPDATE` mode, populating the input fields with the existing record data. Updating the price and submitting sends a `PUT /items/:id` request to persist modifications.
-![Figure 3: PUT Operation](screenshots/fig3_put_update_item.png)
-
----
-
-### Figure 4: DELETE Operation (Confirmation Modal & Re-indexing)
-Clicking the delete action triggers a custom confirmation modal to prevent accidental loss. Confirming sends a `DELETE /items/:id` request, automatically re-sequencing all remaining items to maintain strict consecutive order (`#01`, `#02`, etc.) with zero ID gaps.
-![Figure 4: DELETE Operation](screenshots/fig4_delete_modal.png)
-
----
-
-### Figure 5: Real-Time Search & Filtering
-Live keyword search instantly filters the ledger table by item name or price without requiring page reloads, displaying a real-time counter of matched records.
-![Figure 5: Search & Filter](screenshots/fig5_search_filter.png)
-
----
-
-## ✨ Key Features
-
-- **Full CRUD Operations**:
-  - **Create (POST)**: Add new items with real-time validation.
-  - **Read (GET)**: Fetch and display items with continuous serial numbers (`#01`, `#02`, etc.).
-  - **Update (PUT)**: Pre-fill form fields, toggle edit mode, and save changes inline.
-  - **Delete (DELETE)**: Custom modal confirmation preventing accidental deletions.
-- **Continuous Sequential Re-indexing**: Automatically recalculates continuous serial numbers whenever records are removed.
-- **Real-Time Search & Filter**: Instantly filter records by item name or price threshold without reloading.
-- **Multi-criteria Sorting**: Sort items by Serial Number (Asc/Desc), Price (Low to High / High to Low), or Item Name (A to Z).
-- **Live KPI Analytics Strip**: Dynamically computes **Total Items**, **Total Inventory Valuation**, and **Average Unit Price**.
-- **Minimalist Fintech UI**: Clean monochrome typography (Inter & JetBrains Mono), custom toast notifications, and zero external frontend dependencies for maximum speed and simplicity.
+### 2. 🎨 Re-designed Modern Dashboard UI
+- **Dark & Light Mode Switcher**: Seamless toggle between sleek dark mode and crisp slate light mode with persistent settings.
+- **Dual View Modes**: Switch on the fly between **High-Density Table View** and **Visual Product Grid Cards**.
+- **Interactive Stock Stepper**: Increment or decrement stock quantity directly from any table row or product card (`+` / `−`) without entering edit mode.
+- **Dynamic KPI Analytics Dashboard**:
+  - **Total SKUs** & total unit inventory count.
+  - **Total Inventory Valuation** (cumulative asset worth calculated from stock × unit price).
+  - **Average Unit Price** across the catalog.
+  - **Low Stock Alerts**: Interactive alert card highlighting critical items (≤ 5 units remaining); clicking it automatically filters low stock items.
+- **Multi-dimensional Filtering & Search**:
+  - Instant omni-search for item name, SKU, price threshold, or category (press `/` to focus).
+  - Horizontal category quick-filter chips (**Computing**, **Audio**, **Peripherals**, **Displays**, **Tablets**, **Storage**, **Power**, **Streaming**, **Furniture**).
+  - Stock status selector (**In Stock**, **Low Stock**, **Out of Stock**).
+  - Sorting by Serial No, Unit Price, Stock Count, or Name.
+- **Enhanced Product Creation / Edit Form**:
+  - Live interactive preview card displaying product appearance in real-time as you type.
+  - One-click auto SKU generator button.
+  - Quick duplicate button on each row to clone items rapidly.
+- **Data Export & Reset Tools**:
+  - **Export as CSV**: Generates formatted spreadsheet with valuation breakdown.
+  - **Export as JSON**: Direct full-payload backup.
+  - **Reset Catalog**: One-click restore to demo items.
 
 ---
 
@@ -56,9 +49,10 @@ Live keyword search instantly filters the ledger table by item name or price wit
 | Layer | Technology |
 |---|---|
 | **Backend** | Node.js, Express 5 |
-| **Frontend** | Vanilla JavaScript (ES6+), HTML5, Modern CSS3 (Variables, Flexbox, Grid) |
-| **Fonts** | Inter, JetBrains Mono |
-| **Architecture** | RESTful API + Static File Serving |
+| **Frontend** | Modern Vanilla JavaScript (ES6+), Semantic HTML5, CSS3 Custom Properties |
+| **Styling & Icons** | Glassmorphism, CSS Grid & Flexbox, SVG micro-icons |
+| **Typography** | Inter & JetBrains Mono |
+| **Data Format** | RESTful JSON API |
 
 ---
 
@@ -66,10 +60,12 @@ Live keyword search instantly filters the ledger table by item name or price wit
 
 | Method | Endpoint | Description | Request Body | Response |
 |---|---|---|---|---|
-| `GET` | `/items` | Retrieve all inventory items | None | `200 OK` (Array of items) |
-| `POST` | `/items` | Create a new item | `{ "name": "string", "price": number }` | `201 Created` (New item object) |
-| `PUT` | `/items/:id` | Update an existing item | `{ "name": "string", "price": number }` | `200 OK` (Updated item object) |
-| `DELETE` | `/items/:id` | Delete an item & re-sequence IDs | None | `200 OK` (Status message & re-sequenced items) |
+| `GET` | `/items` | Retrieve all items with sequential S/N | None | `200 OK` (Array of items) |
+| `POST` | `/items` | Create a new item | `{ "name": string, "price": number, "category"?: string, "stock"?: number, "sku"?: string }` | `201 Created` (New item) |
+| `PUT` | `/items/:id` | Update an existing item | `{ "name": string, "price": number, "category"?: string, "stock"?: number, "sku"?: string }` | `200 OK` (Updated item) |
+| `PATCH` | `/items/:id/stock`| Quick increment/decrement stock | `{ "delta": number }` | `200 OK` (Updated item) |
+| `DELETE` | `/items/:id` | Delete item & re-sequence IDs | None | `200 OK` (Status message & re-sequenced items) |
+| `POST` | `/items/reset` | Reset catalog back to sample items | None | `200 OK` (Default items) |
 
 ---
 
@@ -79,25 +75,24 @@ Live keyword search instantly filters the ledger table by item name or price wit
 - [Node.js](https://nodejs.org/) (v16 or higher)
 - npm (Node Package Manager)
 
-### Installation & Run
+### Quick Start
 
-1. **Clone the repository:**
+1. **Navigate to the repository folder:**
    ```bash
-   git clone https://github.com/AkashNayak1223/smart-inventory-ledger.git
-   cd smart-inventory-ledger
+   cd C:\Users\Lenovo\.gemini\antigravity\scratch\smart-inventory-ledger
    ```
 
-2. **Install dependencies:**
+2. **Install dependencies (if not already installed):**
    ```bash
    npm install
    ```
 
-3. **Start the server:**
+3. **Start the application server:**
    ```bash
    node server.js
    ```
 
-4. **Access the application:**
+4. **Launch the web application:**
    Open your browser and navigate to:
    ```
    http://localhost:3000
@@ -110,22 +105,15 @@ Live keyword search instantly filters the ledger table by item name or price wit
 ```
 smart-inventory-ledger/
 ├── public/
-│   ├── index.html        # Clean semantic application markup
-│   ├── script.js         # REST client, real-time search & filter, KPI metrics, modal logic
-│   └── style.css         # Fintech design system, typography, and responsive grid
-├── screenshots/          # Output demonstration figures (POST, PUT, DELETE, Search)
-│   ├── fig1_initial_state.png
-│   ├── fig2_post_add_item.png
-│   ├── fig3_put_update_item.png
-│   ├── fig4_delete_modal.png
-│   └── fig5_search_filter.png
+│   ├── index.html        # Modern dashboard layout with dark/light mode & KPI cards
+│   ├── script.js         # REST client, omni-search, category filters, CSV/JSON export, live preview
+│   └── style.css         # SaaS design system, responsive grid, status badges & themes
+├── server.js             # Express REST API, sequential ID auto-reindexing & stock controller
 ├── package.json          # Project metadata and Express dependency
-├── package-lock.json     # Dependency lockfile
-├── server.js             # Express REST API & sequential re-indexing controller
-└── README.md             # Project documentation & output walkthrough
+└── README.md             # Project documentation & feature guide
 ```
 
 ---
 
 ## 📄 License
-This project is open-source and available under the [ISC License](LICENSE).
+Open-source under the [ISC License](LICENSE).
