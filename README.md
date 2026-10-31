@@ -1,88 +1,131 @@
-# NEXUS.LEDGER — Next-Gen Smart Inventory & Asset Tracking System
+# NEXUS.LEDGER — Real-Time Smart Inventory & Asset Tracking System
 
-A sleek, high-performance item management and inventory tracking web application built with **Node.js**, **Express**, and modern Vanilla JavaScript. Features continuous serial re-indexing, real-time omni-search, category filtering, low-stock alerts, dark/light theme switching, table & grid card views, stock steppers, and instant CSV/JSON exports.
+NEXUS.LEDGER is a modern, high-performance inventory management and asset tracking platform built with **Node.js**, **Express**, and modern Vanilla JavaScript (ES6+). Engineered with a high-end cyberpunk-slate SaaS design system, the system delivers real-time catalog analytics, continuous sequential serial number auto-reindexing, interactive stock steppers, live creation previews, omni-search filtering, and one-click data export utilities.
 
 ---
 
-## ✨ What's New & Upgraded
+## 📸 Screenshots & Visual Walkthrough
 
-### 1. 📦 Re-imagined Inventory Catalog
-Upgraded from basic default placeholders to a comprehensive modern high-end tech & device catalog:
-- **MacBook Pro 16" M3 Max** (Computing, ₹2,49,900)
-- **Sony WH-1000XM5 Wireless Headphones** (Audio, ₹29,990)
-- **Keychron Q1 Pro Mechanical Keyboard** (Peripherals, ₹17,499)
-- **Logitech MX Master 3S Mouse** (Peripherals, ₹8,995)
-- **Dell UltraSharp 32" 4K USB-C Monitor** (Displays, ₹74,900)
-- **Apple iPad Pro 11" M4** (Tablets, ₹99,900)
-- **Samsung 990 PRO 2TB NVMe SSD** (Storage, ₹16,499)
-- **Anker Prime 20,000mAh Power Bank** (Power, ₹11,999)
-- **Elgato Stream Deck MK.2** (Streaming, ₹13,999)
-- **Herman Miller Aeron Ergonomic Chair** (Furniture, ₹1,25,000)
+### 1. Main Dashboard & KPI Analytics Overview
+![Main Dashboard & KPI Analytics](screenshots/01-dashboard-kpi-overview.png)
 
-### 2. 🎨 Re-designed Modern Dashboard UI
-- **Dark & Light Mode Switcher**: Seamless toggle between sleek dark mode and crisp slate light mode with persistent settings.
-- **Dual View Modes**: Switch on the fly between **High-Density Table View** and **Visual Product Grid Cards**.
-- **Interactive Stock Stepper**: Increment or decrement stock quantity directly from any table row or product card (`+` / `−`) without entering edit mode.
-- **Dynamic KPI Analytics Dashboard**:
-  - **Total SKUs** & total unit inventory count.
-  - **Total Inventory Valuation** (cumulative asset worth calculated from stock × unit price).
-  - **Average Unit Price** across the catalog.
-  - **Low Stock Alerts**: Interactive alert card highlighting critical items (≤ 5 units remaining); clicking it automatically filters low stock items.
-- **Multi-dimensional Filtering & Search**:
-  - Instant omni-search for item name, SKU, price threshold, or category (press `/` to focus).
-  - Horizontal category quick-filter chips (**Computing**, **Audio**, **Peripherals**, **Displays**, **Tablets**, **Storage**, **Power**, **Streaming**, **Furniture**).
-  - Stock status selector (**In Stock**, **Low Stock**, **Out of Stock**).
-  - Sorting by Serial No, Unit Price, Stock Count, or Name.
-- **Enhanced Product Creation / Edit Form**:
-  - Live interactive preview card displaying product appearance in real-time as you type.
-  - One-click auto SKU generator button.
-  - Quick duplicate button on each row to clone items rapidly.
-- **Data Export & Reset Tools**:
-  - **Export as CSV**: Generates formatted spreadsheet with valuation breakdown.
-  - **Export as JSON**: Direct full-payload backup.
-  - **Reset Catalog**: One-click restore to demo items.
+> **Description:** The central command dashboard displaying real-time aggregated inventory intelligence:
+> - **Total SKUs:** Live tracking of unique items and total warehouse units.
+> - **Total Valuation:** Real-time cumulative asset valuation (calculated dynamically from `stock × unit price`).
+> - **Average Unit Price:** Catalog mean valuation per unique item.
+> - **Low Stock Alerts:** Interactive alert badge identifying depleted items (≤ 5 units remaining) with click-to-filter capability.
+> - **Catalog Ledger:** Tabular view featuring sequential serial indexing (`#01` to `#10`), category tags, interactive stock steppers (`−` / `+`), and status badges (*In Stock*, *Low Stock*).
+
+---
+
+### 2. Dynamic Entry Creation & Real-Time Preview
+![Dynamic Entry Creation & Preview](screenshots/02-create-item-preview.png)
+
+> **Description:** The interactive **Create Entry** form enabling rapid inventory intake:
+> - **Live Preview Card:** Dynamically reflects item name, category, SKU, and unit price in real-time as the user types.
+> - **One-Click Auto-SKU Generator:** Generates standardized prefix-based SKU codes automatically (e.g. `SKU-COM-8661`).
+> - **Validation & Instant Sync:** Verifies required fields and adds records to the ledger without page reloads.
+
+---
+
+### 3. Continuous Re-indexing & Safety Confirmation Modal
+![Delete Confirmation Modal](screenshots/03-delete-confirmation-modal.png)
+
+> **Description:** High-visibility safety modal triggered prior to record removal. Confirms user intent and notifies that sequential serial numbers (`#01`, `#02`, etc.) will automatically re-index continuously to maintain an unbroken sequence.
+
+---
+
+### 4. Post-Action Notification & Re-indexed Ledger
+![Continuous Re-indexing Verification](screenshots/04-continuous-reindexing.png)
+
+> **Description:** Immediate feedback upon record deletion with an animated confirmation toast (*"✓ Record deleted and ledger serial numbers re-indexed"*). Demonstrates that all subsequent records have their sequential IDs recalibrated instantaneously.
+
+---
+
+## ✨ Key Features & Capabilities
+
+- **Continuous Serial Re-indexing:** Deleting any entry automatically triggers server-side ID recalibration, ensuring no gaps or fragmented serial numbers in the ledger.
+- **Real-Time KPI Analytics:** Instant automatic computation of Total Valuation, Average Price, Stock Quantities, and Low Stock Alerts.
+- **Interactive Stock Steppers:** Direct one-click stock quantity adjustment (`+` / `−`) from the table row without entering full edit mode.
+- **Live Omni-Search & Filtering:**
+  - Instant search across item names, SKU codes, categories, and price thresholds (press `/` to focus).
+  - Horizontal quick-filter chips for all categories (**Computing**, **Audio**, **Peripherals**, **Displays**, **Tablets**, **Storage**, **Power**, **Streaming**, **Furniture**).
+  - Stock status selector (**All Statuses**, **In Stock**, **Low Stock**, **Out of Stock**).
+  - Multi-attribute sorting by Serial No, Unit Price, Stock Count, or Name.
+- **Dual Display Modes:** Switch between a high-density **Tabular Ledger View** and a visual **Product Grid Card View**.
+- **Dark & Light Mode Switcher:** Instant theme switching with persistent client-side storage.
+- **Data Export & Backup:** One-click instant export of the entire ledger to **CSV (Spreadsheet)** or **JSON (Full Payload)**.
+- **Factory Reset Utility:** One-click catalog reset option restoring the default curated device inventory.
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Layer | Technology |
-|---|---|
-| **Backend** | Node.js, Express 5 |
-| **Frontend** | Modern Vanilla JavaScript (ES6+), Semantic HTML5, CSS3 Custom Properties |
-| **Styling & Icons** | Glassmorphism, CSS Grid & Flexbox, SVG micro-icons |
-| **Typography** | Inter & JetBrains Mono |
-| **Data Format** | RESTful JSON API |
+| Layer | Technology | Details |
+| :--- | :--- | :--- |
+| **Backend Runtime** | Node.js | Fast, asynchronous JavaScript execution |
+| **REST API Server** | Express 5 | RESTful routing, JSON body parsing, and static file serving |
+| **Frontend Core** | Vanilla JavaScript (ES6+) | Lightweight, dependency-free reactive DOM updates |
+| **Markup & Layout** | HTML5 & Modern CSS3 | Custom CSS properties, CSS Grid, Flexbox, and Glassmorphism |
+| **Typography** | Inter & JetBrains Mono | Clean enterprise typography with monospace data formatting |
+| **Data Protocol** | RESTful JSON API | Standard HTTP communication with structured status codes |
+| **Version Control** | Git & GitHub | Source tracking and version control |
 
 ---
 
 ## 📡 REST API Reference
 
-| Method | Endpoint | Description | Request Body | Response |
-|---|---|---|---|---|
-| `GET` | `/items` | Retrieve all items with sequential S/N | None | `200 OK` (Array of items) |
-| `POST` | `/items` | Create a new item | `{ "name": string, "price": number, "category"?: string, "stock"?: number, "sku"?: string }` | `201 Created` (New item) |
-| `PUT` | `/items/:id` | Update an existing item | `{ "name": string, "price": number, "category"?: string, "stock"?: number, "sku"?: string }` | `200 OK` (Updated item) |
-| `PATCH` | `/items/:id/stock`| Quick increment/decrement stock | `{ "delta": number }` | `200 OK` (Updated item) |
-| `DELETE` | `/items/:id` | Delete item & re-sequence IDs | None | `200 OK` (Status message & re-sequenced items) |
-| `POST` | `/items/reset` | Reset catalog back to sample items | None | `200 OK` (Default items) |
+| Method | Endpoint | Description | Request Body | Response Status |
+| :--- | :--- | :--- | :--- | :--- |
+| `GET` | `/items` | Retrieve all inventory items with sequential S/N | None | `200 OK` (Array) |
+| `POST` | `/items` | Create and append a new inventory item | `{ "name": string, "price": number, "category"?: string, "stock"?: number, "sku"?: string }` | `201 Created` |
+| `PUT` | `/items/:id` | Update an existing item's fields | `{ "name": string, "price": number, "category"?: string, "stock"?: number, "sku"?: string }` | `200 OK` |
+| `PATCH` | `/items/:id/stock` | Increment or decrement stock quantity | `{ "delta": number }` | `200 OK` |
+| `DELETE` | `/items/:id` | Delete item and trigger continuous serial re-indexing | None | `200 OK` |
+| `POST` | `/items/reset` | Reset catalog back to default sample catalog | None | `200 OK` |
+
+---
+
+## 📂 Project Structure
+
+```text
+smart-inventory-ledger/
+├── public/
+│   ├── index.html        # Modern dashboard layout with dark/light themes & KPI cards
+│   ├── script.js         # REST client, omni-search, category filters, CSV/JSON export, live preview
+│   └── style.css         # Cyber-slate design system, responsive grid, badges & themes
+├── screenshots/
+│   ├── 01-dashboard-kpi-overview.png      # Main dashboard with live KPI analytics
+│   ├── 02-create-item-preview.png         # Item creation form with live preview card
+│   ├── 03-delete-confirmation-modal.png   # Safety modal with re-indexing notice
+│   └── 04-continuous-reindexing.png       # Success notification & re-indexed ledger
+├── server.js             # Express REST API, sequential auto-reindexing & stock controller
+├── package.json          # Project metadata and dependencies
+├── .gitignore
+└── README.md
+```
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v16 or higher)
+
+- [Node.js](https://nodejs.org/) (v16.0 or higher)
 - npm (Node Package Manager)
+- [Git](https://git-scm.com/)
 
-### Quick Start
+---
 
-1. **Navigate to the repository folder:**
+### Quick Start Instructions
+
+1. **Clone the repository:**
    ```bash
-   cd C:\Users\Lenovo\.gemini\antigravity\scratch\smart-inventory-ledger
+   git clone https://github.com/hemanthkamath/mern_task_1.git
+   cd mern_task_1
    ```
 
-2. **Install dependencies (if not already installed):**
+2. **Install dependencies:**
    ```bash
    npm install
    ```
@@ -94,26 +137,12 @@ Upgraded from basic default placeholders to a comprehensive modern high-end tech
 
 4. **Launch the web application:**
    Open your browser and navigate to:
-   ```
+   ```text
    http://localhost:3000
    ```
 
 ---
 
-## 📁 Project Structure
-
-```
-smart-inventory-ledger/
-├── public/
-│   ├── index.html        # Modern dashboard layout with dark/light mode & KPI cards
-│   ├── script.js         # REST client, omni-search, category filters, CSV/JSON export, live preview
-│   └── style.css         # SaaS design system, responsive grid, status badges & themes
-├── server.js             # Express REST API, sequential ID auto-reindexing & stock controller
-├── package.json          # Project metadata and Express dependency
-└── README.md             # Project documentation & feature guide
-```
-
----
-
 ## 📄 License
-Open-source under the [ISC License](LICENSE).
+
+This project is open-source and available under the [MIT License](LICENSE).
